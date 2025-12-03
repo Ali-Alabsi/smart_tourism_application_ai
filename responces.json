@@ -1,0 +1,1063 @@
+{
+    "success": true,
+    "message": "Hotels retrieved successfully",
+    "data": [
+        {
+            "id": 1,
+            "name": "Ritz-Carlton Riyadh",
+            "address": "Al Hada Area, Riyadh",
+            "location": {
+                "latitude": "24.71360000",
+                "longitude": "46.67530000"
+            },
+            "city": {
+                "id": 1,
+                "name": "Riyadh",
+                "country": "Saudi Arabia",
+                "location": {
+                    "latitude": "24.71360000",
+                    "longitude": "46.67530000"
+                },
+                "created_at": "2025-11-27 22:18:05"
+            },
+            "url": "https://www.ritzcarlton.com/riyadh",
+            "price_range": {
+                "min": 800,
+                "max": 2000
+            },
+            "details": "Luxury 5-star hotel in the heart of Riyadh with world-class amenities.",
+            "is_active": true,
+            "images": [],
+            "featured_image": "",
+            "services": [
+                {
+                    "id": 1,
+                    "name": "Airport Transfer",
+                    "icon": "fas fa-shuttle-van",
+                    "description": "Convenient airport transfer service",
+                    "is_active": true,
+                    "created_at": "2025-11-27 22:18:05",
+                    "updated_at": "2025-11-27 22:18:05"
+                },
+                {
+                    "id": 2,
+                    "name": "Tour Guide",
+                    "icon": "fas fa-map-signs",
+                    "description": "Professional tour guide services",
+                    "is_active": true,
+                    "created_at": "2025-11-27 22:18:05",
+                    "updated_at": "2025-11-27 22:18:05"
+                },
+                {
+                    "id": 5,
+                    "name": "Visa Assistance",
+                    "icon": "fas fa-passport",
+                    "description": "Help with visa applications and requirements",
+                    "is_active": true,
+                    "created_at": "2025-11-27 22:18:05",
+                    "updated_at": "2025-11-27 22:18:05"
+                }
+            ],
+            "created_at": "2025-11-27 22:18:05"
+        },
+        {
+            "id": 2,
+            "name": "Four Seasons Hotel Riyadh",
+            "address": "Kingdom Centre, Riyadh",
+            "location": {
+                "latitude": "24.72280000",
+                "longitude": "46.67580000"
+            },
+            "city": {
+                "id": 1,
+                "name": "Riyadh",
+                "country": "Saudi Arabia",
+                "location": {
+                    "latitude": "24.71360000",
+                    "longitude": "46.67530000"
+                },
+                "created_at": "2025-11-27 22:18:05"
+            },
+            "url": "https://www.fourseasons.com/riyadh",
+            "price_range": {
+                "min": 900,
+                "max": 2500
+            },
+            "details": "Premium hotel offering stunning city views and exceptional service.",
+            "is_active": true,
+            "images": [],
+            "featured_image": "",
+            "services": [
+                {
+                    "id": 2,
+                    "name": "Tour Guide",
+                    "icon": "fas fa-map-signs",
+                    "description": "Professional tour guide services",
+                    "is_active": true,
+                    "created_at": "2025-11-27 22:18:05",
+                    "updated_at": "2025-11-27 22:18:05"
+                },
+                {
+                    "id": 6,
+                    "name": "Currency Exchange",
+                    "icon": "fas fa-money-bill-wave",
+                    "description": "Currency exchange services at competitive rates",
+                    "is_active": true,
+                    "created_at": "2025-11-27 22:18:05",
+                    "updated_at": "2025-11-27 22:18:05"
+                }
+            ],
+            "created_at": "2025-11-27 22:18:05"
+        },
+        {
+            "id": 3,
+            "name": "Park Hyatt Jeddah",
+            "address": "Al Hamra District, Jeddah",
+            "location": {
+                "latitude": "21.54330000",
+                "longitude": "39.17280000"
+            },
+            "city": {
+                "id": 2,
+                "name": "Jeddah",
+                "country": "Saudi Arabia",
+                "location": {
+                    "latitude": "21.54330000",
+                    "longitude": "39.17280000"
+                },
+                "created_at": "2025-11-27 22:18:05"
+            },
+            "url": "https://www.hyatt.com/jeddah",
+            "price_range": {
+                "min": 700,
+                "max": 1800
+            },
+            "details": "Beachfront luxury hotel with marina views.",
+            "is_active": true,
+            "images": [],
+            "featured_image": "",
+            "services": [
+                {
+                    "id": 1,
+                    "name": "Airport Transfer",
+                    "icon": "fas fa-shuttle-van",
+                    "description": "Convenient airport transfer service",
+                    "is_active": true,
+                    "created_at": "2025-11-27 22:18:05",
+                    "updated_at": "2025-11-27 22:18:05"
+                },
+                {
+                    "id": 4,
+                    "name": "Travel Insurance",
+                    "icon": "fas fa-shield-alt",
+                    "description": "Comprehensive travel insurance coverage",
+                    "is_active": true,
+                    "created_at": "2025-11-27 22:18:05",
+                    "updated_at": "2025-11-27 22:18:05"
+                }
+            ],
+            "created_at": "2025-11-27 22:18:05"
+        },
+        {
+            "id": 4,
+            "name": "Fairmont Makkah Clock Royal Tower",
+            "address": "Abraj Al Bait, Mecca",
+            "location": {
+                "latitude": "21.41890000",
+                "longitude": "39.82610000"
+            },
+            "city": {
+                "id": 3,
+                "name": "Mecca",
+                "country": "Saudi Arabia",
+                "location": {
+                    "latitude": "21.38910000",
+                    "longitude": "39.85790000"
+                },
+                "created_at": "2025-11-27 22:18:05"
+            },
+            "url": "https://www.fairmont.com/makkah",
+            "price_range": {
+                "min": 1200,
+                "max": 3000
+            },
+            "details": "Iconic hotel overlooking the Holy Mosque.",
+            "is_active": true,
+            "images": [],
+            "featured_image": "",
+            "services": [
+                {
+                    "id": 2,
+                    "name": "Tour Guide",
+                    "icon": "fas fa-map-signs",
+                    "description": "Professional tour guide services",
+                    "is_active": true,
+                    "created_at": "2025-11-27 22:18:05",
+                    "updated_at": "2025-11-27 22:18:05"
+                },
+                {
+                    "id": 4,
+                    "name": "Travel Insurance",
+                    "icon": "fas fa-shield-alt",
+                    "description": "Comprehensive travel insurance coverage",
+                    "is_active": true,
+                    "created_at": "2025-11-27 22:18:05",
+                    "updated_at": "2025-11-27 22:18:05"
+                },
+                {
+                    "id": 5,
+                    "name": "Visa Assistance",
+                    "icon": "fas fa-passport",
+                    "description": "Help with visa applications and requirements",
+                    "is_active": true,
+                    "created_at": "2025-11-27 22:18:05",
+                    "updated_at": "2025-11-27 22:18:05"
+                },
+                {
+                    "id": 8,
+                    "name": "Concierge Service",
+                    "icon": "fas fa-concierge-bell",
+                    "description": "Personalized concierge services",
+                    "is_active": true,
+                    "created_at": "2025-11-27 22:18:05",
+                    "updated_at": "2025-11-27 22:18:05"
+                }
+            ],
+            "created_at": "2025-11-27 22:18:05"
+        },
+        {
+            "id": 5,
+            "name": "Shaza Al Madina",
+            "address": "King Fahd Road, Medina",
+            "location": {
+                "latitude": "24.46720000",
+                "longitude": "39.61110000"
+            },
+            "city": {
+                "id": 4,
+                "name": "Medina",
+                "country": "Saudi Arabia",
+                "location": {
+                    "latitude": "24.52470000",
+                    "longitude": "39.56920000"
+                },
+                "created_at": "2025-11-27 22:18:05"
+            },
+            "url": "https://www.shazahotels.com/medina",
+            "price_range": {
+                "min": 500,
+                "max": 1200
+            },
+            "details": "Modern hotel near Prophets Mosque.",
+            "is_active": true,
+            "images": [],
+            "featured_image": "",
+            "services": [
+                {
+                    "id": 1,
+                    "name": "Airport Transfer",
+                    "icon": "fas fa-shuttle-van",
+                    "description": "Convenient airport transfer service",
+                    "is_active": true,
+                    "created_at": "2025-11-27 22:18:05",
+                    "updated_at": "2025-11-27 22:18:05"
+                },
+                {
+                    "id": 5,
+                    "name": "Visa Assistance",
+                    "icon": "fas fa-passport",
+                    "description": "Help with visa applications and requirements",
+                    "is_active": true,
+                    "created_at": "2025-11-27 22:18:05",
+                    "updated_at": "2025-11-27 22:18:05"
+                },
+                {
+                    "id": 7,
+                    "name": "Luggage Storage",
+                    "icon": "fas fa-suitcase",
+                    "description": "Secure luggage storage facilities",
+                    "is_active": true,
+                    "created_at": "2025-11-27 22:18:05",
+                    "updated_at": "2025-11-27 22:18:05"
+                }
+            ],
+            "created_at": "2025-11-27 22:18:05"
+        }
+    ]
+}
+
+
+
+{
+    "success": true,
+    "message": "Activities retrieved successfully",
+    "data": [
+        {
+            "id": 1,
+            "name": "Edge of the World Tour",
+            "date": "2025-12-04",
+            "address": "Northwest of Riyadh, 90km",
+            "location": {
+                "latitude": "24.92000000",
+                "longitude": "46.14000000"
+            },
+            "city": {
+                "id": 1,
+                "name": "Riyadh",
+                "country": "Saudi Arabia",
+                "location": {
+                    "latitude": "24.71360000",
+                    "longitude": "46.67530000"
+                },
+                "created_at": "2025-11-27 22:18:05"
+            },
+            "details": "Experience the dramatic cliffs overlooking the ancient ocean bed.",
+            "url": null,
+            "price_range": {
+                "min": 200,
+                "max": 500
+            },
+            "is_active": true,
+            "images": [],
+            "thumbnail": "",
+            "created_at": "2025-11-27 22:18:05"
+        },
+        {
+            "id": 2,
+            "name": "AlUla Heritage Tour",
+            "date": "2025-12-11",
+            "address": "AlUla, Saudi Arabia",
+            "location": {
+                "latitude": "26.60840000",
+                "longitude": "37.92410000"
+            },
+            "city": {
+                "id": 8,
+                "name": "AlUla",
+                "country": "Saudi Arabia",
+                "location": {
+                    "latitude": "26.60840000",
+                    "longitude": "37.92410000"
+                },
+                "created_at": "2025-11-27 22:18:05"
+            },
+            "details": "Explore the ancient Nabataean city of Hegra and stunning rock formations.",
+            "url": "https://experiencealula.com",
+            "price_range": {
+                "min": 800,
+                "max": 2000
+            },
+            "is_active": true,
+            "images": [],
+            "thumbnail": "",
+            "created_at": "2025-11-27 22:18:05"
+        },
+        {
+            "id": 3,
+            "name": "Red Sea Diving Experience",
+            "date": "2025-12-18",
+            "address": "Jeddah Corniche",
+            "location": {
+                "latitude": "21.54330000",
+                "longitude": "39.17280000"
+            },
+            "city": {
+                "id": 2,
+                "name": "Jeddah",
+                "country": "Saudi Arabia",
+                "location": {
+                    "latitude": "21.54330000",
+                    "longitude": "39.17280000"
+                },
+                "created_at": "2025-11-27 22:18:05"
+            },
+            "details": "Discover vibrant coral reefs and marine life in the Red Sea.",
+            "url": null,
+            "price_range": {
+                "min": 400,
+                "max": 800
+            },
+            "is_active": true,
+            "images": [],
+            "thumbnail": "",
+            "created_at": "2025-11-27 22:18:05"
+        },
+        {
+            "id": 4,
+            "name": "Asir Mountain Hiking",
+            "date": "2025-12-07",
+            "address": "Asir Mountains, Abha",
+            "location": {
+                "latitude": "18.21640000",
+                "longitude": "42.50530000"
+            },
+            "city": {
+                "id": 7,
+                "name": "Abha",
+                "country": "Saudi Arabia",
+                "location": {
+                    "latitude": "18.21640000",
+                    "longitude": "42.50530000"
+                },
+                "created_at": "2025-11-27 22:18:05"
+            },
+            "details": "Trek through lush green mountains and traditional villages.",
+            "url": null,
+            "price_range": {
+                "min": 300,
+                "max": 600
+            },
+            "is_active": true,
+            "images": [],
+            "thumbnail": "",
+            "created_at": "2025-11-27 22:18:05"
+        },
+        {
+            "id": 5,
+            "name": "Riyadh Season Entertainment",
+            "date": "2025-11-30",
+            "address": "Boulevard Riyadh City",
+            "location": {
+                "latitude": "24.71360000",
+                "longitude": "46.67530000"
+            },
+            "city": {
+                "id": 1,
+                "name": "Riyadh",
+                "country": "Saudi Arabia",
+                "location": {
+                    "latitude": "24.71360000",
+                    "longitude": "46.67530000"
+                },
+                "created_at": "2025-11-27 22:18:05"
+            },
+            "details": "World-class entertainment, concerts, and dining experiences.",
+            "url": "https://riyadhseason.sa",
+            "price_range": {
+                "min": 100,
+                "max": 1000
+            },
+            "is_active": true,
+            "images": [],
+            "thumbnail": "",
+            "created_at": "2025-11-27 22:18:05"
+        },
+        {
+            "id": 6,
+            "name": "Sample Activity",
+            "date": "2025-12-01",
+            "address": "123 Main St",
+            "location": {
+                "latitude": "40.71280000",
+                "longitude": "-74.00600000"
+            },
+            "city": {
+                "id": 1,
+                "name": "Riyadh",
+                "country": "Saudi Arabia",
+                "location": {
+                    "latitude": "24.71360000",
+                    "longitude": "46.67530000"
+                },
+                "created_at": "2025-11-27 22:18:05"
+            },
+            "details": "Details about the activity",
+            "url": "https://example.com",
+            "price_range": {
+                "min": 10,
+                "max": 50
+            },
+            "is_active": true,
+            "images": [],
+            "thumbnail": "",
+            "created_at": "2025-11-29 19:31:54"
+        }
+    ]
+}
+
+
+
+{
+    "success": true,
+    "message": "Plains retrieved successfully",
+    "data": [
+        {
+            "id": 1,
+            "name": "Saudi Airlines",
+            "address": "King Khalid International Airport, Riyadh",
+            "location": {
+                "latitude": "24.95910000",
+                "longitude": "46.69660000"
+            },
+            "city": null,
+            "url": "https://www.saudiairlines.com",
+            "details": "National carrier of Saudi Arabia with extensive domestic and international network",
+            "is_active": true,
+            "images": [],
+            "logo": "",
+            "plain_travels_count": 3,
+            "plain_travels": [
+                {
+                    "id": 1,
+                    "plain_id": 1,
+                    "from_city_id": 1,
+                    "to_city_id": 2,
+                    "from_price": "450.00",
+                    "to_price": "750.00",
+                    "duration_minutes": 120,
+                    "departure_time": "08:00",
+                    "arrival_time": "10:00",
+                    "created_at": "2025-11-27T22:18:05.000000Z",
+                    "updated_at": "2025-11-27T22:18:05.000000Z"
+                },
+                {
+                    "id": 2,
+                    "plain_id": 1,
+                    "from_city_id": 2,
+                    "to_city_id": 1,
+                    "from_price": "450.00",
+                    "to_price": "750.00",
+                    "duration_minutes": 120,
+                    "departure_time": "14:00",
+                    "arrival_time": "16:00",
+                    "created_at": "2025-11-27T22:18:05.000000Z",
+                    "updated_at": "2025-11-27T22:18:05.000000Z"
+                },
+                {
+                    "id": 3,
+                    "plain_id": 1,
+                    "from_city_id": 1,
+                    "to_city_id": 4,
+                    "from_price": "350.00",
+                    "to_price": "600.00",
+                    "duration_minutes": 90,
+                    "departure_time": "09:00",
+                    "arrival_time": "10:30",
+                    "created_at": "2025-11-27T22:18:05.000000Z",
+                    "updated_at": "2025-11-27T22:18:05.000000Z"
+                }
+            ],
+            "average_rating": null,
+            "created_at": "2025-11-27 22:18:05",
+            "updated_at": "2025-11-27 22:18:05"
+        },
+        {
+            "id": 2,
+            "name": "Fly Nas",
+            "address": "King Abdulaziz International Airport, Jeddah",
+            "location": {
+                "latitude": "21.67960000",
+                "longitude": "39.15650000"
+            },
+            "city": null,
+            "url": "https://www.flynas.com",
+            "details": "Low-cost airline based in Saudi Arabia",
+            "is_active": true,
+            "images": [],
+            "logo": "",
+            "plain_travels_count": 1,
+            "plain_travels": [
+                {
+                    "id": 4,
+                    "plain_id": 2,
+                    "from_city_id": 2,
+                    "to_city_id": 3,
+                    "from_price": "300.00",
+                    "to_price": "500.00",
+                    "duration_minutes": 95,
+                    "departure_time": "11:00",
+                    "arrival_time": "12:35",
+                    "created_at": "2025-11-27T22:18:05.000000Z",
+                    "updated_at": "2025-11-27T22:18:05.000000Z"
+                }
+            ],
+            "average_rating": null,
+            "created_at": "2025-11-27 22:18:05",
+            "updated_at": "2025-11-27 22:18:05"
+        },
+        {
+            "id": 3,
+            "name": "Flynas",
+            "address": "Prince Mohammad bin Abdulaziz Airport, Medina",
+            "location": {
+                "latitude": "24.55340000",
+                "longitude": "39.70560000"
+            },
+            "city": null,
+            "url": "https://www.flynas.com",
+            "details": "Regional airline serving domestic routes",
+            "is_active": true,
+            "images": [],
+            "logo": "",
+            "plain_travels_count": 1,
+            "plain_travels": [
+                {
+                    "id": 5,
+                    "plain_id": 3,
+                    "from_city_id": 4,
+                    "to_city_id": 1,
+                    "from_price": "320.00",
+                    "to_price": "550.00",
+                    "duration_minutes": 85,
+                    "departure_time": "13:00",
+                    "arrival_time": "14:25",
+                    "created_at": "2025-11-27T22:18:05.000000Z",
+                    "updated_at": "2025-11-27T22:18:05.000000Z"
+                }
+            ],
+            "average_rating": null,
+            "created_at": "2025-11-27 22:18:05",
+            "updated_at": "2025-11-27 22:18:05"
+        }
+    ]
+}
+
+
+{
+    "success": true,
+    "message": "Restaurants retrieved successfully",
+    "data": [
+        {
+            "id": 1,
+            "name": "Najd Village",
+            "address": "Thumamah Road, Riyadh",
+            "location": {
+                "latitude": "24.71360000",
+                "longitude": "46.67530000"
+            },
+            "city": {
+                "id": 1,
+                "name": "Riyadh",
+                "country": "Saudi Arabia",
+                "location": {
+                    "latitude": "24.71360000",
+                    "longitude": "46.67530000"
+                },
+                "created_at": "2025-11-27 22:18:05"
+            },
+            "url": "https://najdvillage.com",
+            "cuisine_type": "Traditional Saudi",
+            "opening_hours": {
+                "opening_time": "12:00",
+                "closing_time": "23:00"
+            },
+            "is_active": true,
+            "images": [],
+            "logo": "",
+            "foods_count": 4,
+            "foods": {
+                "data": [
+                    {
+                        "id": 1,
+                        "name": "Kabsa",
+                        "restaurant_id": 1,
+                        "type": "lunch",
+                        "price_range": {
+                            "from": "45.00",
+                            "to": "85.00"
+                        },
+                        "description": "Traditional Saudi rice dish with meat and aromatic spices",
+                        "is_available": true,
+                        "images": [],
+                        "main_image": "",
+                        "created_at": "2025-11-27 22:18:05",
+                        "updated_at": "2025-11-27 22:18:05"
+                    },
+                    {
+                        "id": 2,
+                        "name": "Mandi",
+                        "restaurant_id": 1,
+                        "type": "dinner",
+                        "price_range": {
+                            "from": "55.00",
+                            "to": "95.00"
+                        },
+                        "description": "Tender lamb cooked in a tandoor with fragrant rice",
+                        "is_available": true,
+                        "images": [],
+                        "main_image": "",
+                        "created_at": "2025-11-27 22:18:05",
+                        "updated_at": "2025-11-27 22:18:05"
+                    },
+                    {
+                        "id": 3,
+                        "name": "Saudi Breakfast Platter",
+                        "restaurant_id": 1,
+                        "type": "breakfast",
+                        "price_range": {
+                            "from": "25.00",
+                            "to": "45.00"
+                        },
+                        "description": "Assorted Saudi breakfast items including eggs, cheese, and bread",
+                        "is_available": true,
+                        "images": [],
+                        "main_image": "",
+                        "created_at": "2025-11-27 22:18:05",
+                        "updated_at": "2025-11-27 22:18:05"
+                    },
+                    {
+                        "id": 4,
+                        "name": "Luqaimat",
+                        "restaurant_id": 1,
+                        "type": "dessert",
+                        "price_range": {
+                            "from": "15.00",
+                            "to": "25.00"
+                        },
+                        "description": "Sweet dumplings drizzled with date syrup",
+                        "is_available": true,
+                        "images": [],
+                        "main_image": "",
+                        "created_at": "2025-11-27 22:18:05",
+                        "updated_at": "2025-11-27 22:18:05"
+                    }
+                ],
+                "meta": {
+                    "count": 4
+                }
+            },
+            "created_at": "2025-11-27 22:18:05"
+        },
+        {
+            "id": 2,
+            "name": "The Globe Restaurant",
+            "address": "Al Faisaliyah Tower, Riyadh",
+            "location": {
+                "latitude": "24.71180000",
+                "longitude": "46.67540000"
+            },
+            "city": {
+                "id": 1,
+                "name": "Riyadh",
+                "country": "Saudi Arabia",
+                "location": {
+                    "latitude": "24.71360000",
+                    "longitude": "46.67530000"
+                },
+                "created_at": "2025-11-27 22:18:05"
+            },
+            "url": null,
+            "cuisine_type": "International",
+            "opening_hours": {
+                "opening_time": "18:00",
+                "closing_time": "01:00"
+            },
+            "is_active": true,
+            "images": [],
+            "logo": "",
+            "foods_count": 3,
+            "foods": {
+                "data": [
+                    {
+                        "id": 5,
+                        "name": "Grilled Salmon",
+                        "restaurant_id": 2,
+                        "type": "dinner",
+                        "price_range": {
+                            "from": "65.00",
+                            "to": "85.00"
+                        },
+                        "description": "Fresh Atlantic salmon with herbs and lemon butter sauce",
+                        "is_available": true,
+                        "images": [],
+                        "main_image": "",
+                        "created_at": "2025-11-27 22:18:05",
+                        "updated_at": "2025-11-27 22:18:05"
+                    },
+                    {
+                        "id": 6,
+                        "name": "Beef Wellington",
+                        "restaurant_id": 2,
+                        "type": "dinner",
+                        "price_range": {
+                            "from": "85.00",
+                            "to": "125.00"
+                        },
+                        "description": "Tender beef wrapped in puff pastry with mushroom duxelles",
+                        "is_available": true,
+                        "images": [],
+                        "main_image": "",
+                        "created_at": "2025-11-27 22:18:05",
+                        "updated_at": "2025-11-27 22:18:05"
+                    },
+                    {
+                        "id": 7,
+                        "name": "Continental Breakfast",
+                        "restaurant_id": 2,
+                        "type": "breakfast",
+                        "price_range": {
+                            "from": "35.00",
+                            "to": "55.00"
+                        },
+                        "description": "European-style breakfast with pastries, eggs, and coffee",
+                        "is_available": true,
+                        "images": [],
+                        "main_image": "",
+                        "created_at": "2025-11-27 22:18:05",
+                        "updated_at": "2025-11-27 22:18:05"
+                    }
+                ],
+                "meta": {
+                    "count": 3
+                }
+            },
+            "created_at": "2025-11-27 22:18:05"
+        },
+        {
+            "id": 3,
+            "name": "Al Nakheel Restaurant",
+            "address": "Corniche, Jeddah",
+            "location": {
+                "latitude": "21.54330000",
+                "longitude": "39.17280000"
+            },
+            "city": {
+                "id": 2,
+                "name": "Jeddah",
+                "country": "Saudi Arabia",
+                "location": {
+                    "latitude": "21.54330000",
+                    "longitude": "39.17280000"
+                },
+                "created_at": "2025-11-27 22:18:05"
+            },
+            "url": null,
+            "cuisine_type": "Seafood",
+            "opening_hours": {
+                "opening_time": "13:00",
+                "closing_time": "00:00"
+            },
+            "is_active": true,
+            "images": [],
+            "logo": "",
+            "foods_count": 3,
+            "foods": {
+                "data": [
+                    {
+                        "id": 8,
+                        "name": "Grilled Kingfish",
+                        "restaurant_id": 3,
+                        "type": "dinner",
+                        "price_range": {
+                            "from": "75.00",
+                            "to": "95.00"
+                        },
+                        "description": "Fresh kingfish grilled to perfection with Mediterranean herbs",
+                        "is_available": true,
+                        "images": [],
+                        "main_image": "",
+                        "created_at": "2025-11-27 22:18:05",
+                        "updated_at": "2025-11-27 22:18:05"
+                    },
+                    {
+                        "id": 9,
+                        "name": "Seafood Platter",
+                        "restaurant_id": 3,
+                        "type": "dinner",
+                        "price_range": {
+                            "from": "120.00",
+                            "to": "180.00"
+                        },
+                        "description": "Assortment of fresh seafood including shrimp, crab, and fish",
+                        "is_available": true,
+                        "images": [],
+                        "main_image": "",
+                        "created_at": "2025-11-27 22:18:05",
+                        "updated_at": "2025-11-27 22:18:05"
+                    },
+                    {
+                        "id": 10,
+                        "name": "Shrimp Tempura",
+                        "restaurant_id": 3,
+                        "type": "lunch",
+                        "price_range": {
+                            "from": "45.00",
+                            "to": "65.00"
+                        },
+                        "description": "Crispy battered shrimp served with dipping sauce",
+                        "is_available": true,
+                        "images": [],
+                        "main_image": "",
+                        "created_at": "2025-11-27 22:18:05",
+                        "updated_at": "2025-11-27 22:18:05"
+                    }
+                ],
+                "meta": {
+                    "count": 3
+                }
+            },
+            "created_at": "2025-11-27 22:18:05"
+        },
+        {
+            "id": 4,
+            "name": "Twin Brothers",
+            "address": "Quba Road, Medina",
+            "location": {
+                "latitude": "24.52470000",
+                "longitude": "39.56920000"
+            },
+            "city": {
+                "id": 4,
+                "name": "Medina",
+                "country": "Saudi Arabia",
+                "location": {
+                    "latitude": "24.52470000",
+                    "longitude": "39.56920000"
+                },
+                "created_at": "2025-11-27 22:18:05"
+            },
+            "url": null,
+            "cuisine_type": "Arabic",
+            "opening_hours": {
+                "opening_time": "11:00",
+                "closing_time": "23:30"
+            },
+            "is_active": true,
+            "images": [],
+            "logo": "",
+            "foods_count": 3,
+            "foods": {
+                "data": [
+                    {
+                        "id": 11,
+                        "name": "Mixed Grill Platter",
+                        "restaurant_id": 4,
+                        "type": "dinner",
+                        "price_range": {
+                            "from": "65.00",
+                            "to": "95.00"
+                        },
+                        "description": "Selection of grilled meats including kofta, chicken, and lamb",
+                        "is_available": true,
+                        "images": [],
+                        "main_image": "",
+                        "created_at": "2025-11-27 22:18:05",
+                        "updated_at": "2025-11-27 22:18:05"
+                    },
+                    {
+                        "id": 12,
+                        "name": "Lamb Shawarma",
+                        "restaurant_id": 4,
+                        "type": "lunch",
+                        "price_range": {
+                            "from": "25.00",
+                            "to": "35.00"
+                        },
+                        "description": "Slow-roasted lamb with garlic sauce and pickles",
+                        "is_available": true,
+                        "images": [],
+                        "main_image": "",
+                        "created_at": "2025-11-27 22:18:05",
+                        "updated_at": "2025-11-27 22:18:05"
+                    },
+                    {
+                        "id": 13,
+                        "name": "Hummus with Meat",
+                        "restaurant_id": 4,
+                        "type": "lunch",
+                        "price_range": {
+                            "from": "30.00",
+                            "to": "45.00"
+                        },
+                        "description": "Creamy hummus topped with spiced ground meat",
+                        "is_available": true,
+                        "images": [],
+                        "main_image": "",
+                        "created_at": "2025-11-27 22:18:05",
+                        "updated_at": "2025-11-27 22:18:05"
+                    }
+                ],
+                "meta": {
+                    "count": 3
+                }
+            },
+            "created_at": "2025-11-27 22:18:05"
+        },
+        {
+            "id": 5,
+            "name": "Ristorante Cavallino",
+            "address": "Tahlia Street, Jeddah",
+            "location": {
+                "latitude": "21.54330000",
+                "longitude": "39.17280000"
+            },
+            "city": {
+                "id": 2,
+                "name": "Jeddah",
+                "country": "Saudi Arabia",
+                "location": {
+                    "latitude": "21.54330000",
+                    "longitude": "39.17280000"
+                },
+                "created_at": "2025-11-27 22:18:05"
+            },
+            "url": null,
+            "cuisine_type": "Italian",
+            "opening_hours": {
+                "opening_time": "12:00",
+                "closing_time": "23:00"
+            },
+            "is_active": true,
+            "images": [],
+            "logo": "",
+            "foods_count": 3,
+            "foods": {
+                "data": [
+                    {
+                        "id": 14,
+                        "name": "Margherita Pizza",
+                        "restaurant_id": 5,
+                        "type": "lunch",
+                        "price_range": {
+                            "from": "35.00",
+                            "to": "55.00"
+                        },
+                        "description": "Classic pizza with tomato sauce, mozzarella, and basil",
+                        "is_available": true,
+                        "images": [],
+                        "main_image": "",
+                        "created_at": "2025-11-27 22:18:05",
+                        "updated_at": "2025-11-27 22:18:05"
+                    },
+                    {
+                        "id": 15,
+                        "name": "Spaghetti Carbonara",
+                        "restaurant_id": 5,
+                        "type": "dinner",
+                        "price_range": {
+                            "from": "45.00",
+                            "to": "65.00"
+                        },
+                        "description": "Pasta with egg, cheese, pancetta, and black pepper",
+                        "is_available": true,
+                        "images": [],
+                        "main_image": "",
+                        "created_at": "2025-11-27 22:18:05",
+                        "updated_at": "2025-11-27 22:18:05"
+                    },
+                    {
+                        "id": 16,
+                        "name": "Tiramisu",
+                        "restaurant_id": 5,
+                        "type": "dessert",
+                        "price_range": {
+                            "from": "20.00",
+                            "to": "30.00"
+                        },
+                        "description": "Classic Italian dessert with coffee-soaked ladyfingers",
+                        "is_available": true,
+                        "images": [],
+                        "main_image": "",
+                        "created_at": "2025-11-27 22:18:05",
+                        "updated_at": "2025-11-27 22:18:05"
+                    }
+                ],
+                "meta": {
+                    "count": 3
+                }
+            },
+            "created_at": "2025-11-27 22:18:05"
+        }
+    ]
+}
+
