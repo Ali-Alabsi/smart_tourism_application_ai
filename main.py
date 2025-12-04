@@ -12,9 +12,8 @@ load_dotenv()
 
 EXTERNAL_API_BASE_URL = "https://insidethekingdom.online/api"
 
-API_TOKEN = os.getenv("INSIDE_KINGDOM_TOKEN")
-if not API_TOKEN:
-    raise ValueError("INSIDE_KINGDOM_TOKEN environment variable is required")
+DEFAULT_TOKEN = "2|GzzXjnvexTyfIQEuaKM9zLTysy4lHf4uG2x6k4Fk853120e5"
+API_TOKEN = os.getenv("INSIDE_KINGDOM_TOKEN", DEFAULT_TOKEN)
 
 COMMON_HEADERS = {
     "Accept": "application/json",
