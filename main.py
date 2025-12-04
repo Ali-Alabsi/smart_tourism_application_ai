@@ -2,7 +2,7 @@ import os
 import asyncio
 from typing import Optional, List, Dict, Any, Tuple
 
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, HTTPException, Header, Depends
 from pydantic import BaseModel, Field
 import httpx
 from dotenv import load_dotenv
@@ -12,12 +12,34 @@ load_dotenv()
 
 EXTERNAL_API_BASE_URL = "https://insidethekingdom.online/api"
 
-API_TOKEN = os.getenv("INSIDE_KINGDOM_TOKEN")
 
-COMMON_HEADERS = {
-    "Accept": "application/json",
-    "Authorization": f"Bearer {API_TOKEN}",
-}
+async def get_token(authorization: Optional[str] = Header(None, alias="Authorization", description="Bearer token for authentication")):
+    """Extract token from Authorization header."""
+    if not authorization:
+        raise HTTPException(
+            status_code=401,
+            detail="Authorization header is required"
+        )
+    if not authorization.startswith("Bearer "):
+        raise HTTPException(
+            status_code=401,
+            detail="Invalid authorization header format. Expected: Bearer <token>"
+        )
+    token = authorization.replace("Bearer ", "").strip()
+    if not token:
+        raise HTTPException(
+            status_code=401,
+            detail="Token is required"
+        )
+    return token
+
+
+def get_headers(token: str) -> Dict[str, str]:
+    """Build headers with token for external API calls."""
+    return {
+        "Accept": "application/json",
+        "Authorization": f"Bearer {token}",
+    }
 
 
 app = FastAPI(
@@ -157,7 +179,7 @@ def calculate_budgets(req: TripRequest) -> Tuple[float, float, Dict[str, float]]
 
 
 async def fetch_list_from_external(
-    endpoint: str, params: Optional[Dict[str, Any]] = None
+    endpoint: str, token: str, params: Optional[Dict[str, Any]] = None
 ) -> List[Dict[str, Any]]:
     """Simple GET call from external API and return list of items.
 
@@ -167,9 +189,10 @@ async def fetch_list_from_external(
     So we try to support both cases.
     """
     url = f"{EXTERNAL_API_BASE_URL}/{endpoint.strip('/')}"
+    headers = get_headers(token)
 
     async with httpx.AsyncClient(timeout=15.0) as client:
-        resp = await client.get(url, headers=COMMON_HEADERS, params=params)
+        resp = await client.get(url, headers=headers, params=params)
 
     if resp.status_code != 200:
         raise HTTPException(
@@ -194,17 +217,18 @@ async def fetch_list_from_external(
     )
 
 
-async def fetch_all_external() -> Tuple[List[Dict[str, Any]], List[Dict[str, Any]], List[Dict[str, Any]]]:
+async def fetch_all_external(token: str) -> Tuple[List[Dict[str, Any]], List[Dict[str, Any]], List[Dict[str, Any]]]:
     """Fetch activities, hotels, and flights (plains) data in parallel."""
+    headers = get_headers(token)
     async with httpx.AsyncClient(timeout=20.0) as client:
         activities_coro = client.get(
-            f"{EXTERNAL_API_BASE_URL}/activities", headers=COMMON_HEADERS
+            f"{EXTERNAL_API_BASE_URL}/activities", headers=headers
         )
         hotels_coro = client.get(
-            f"{EXTERNAL_API_BASE_URL}/hotels", headers=COMMON_HEADERS
+            f"{EXTERNAL_API_BASE_URL}/hotels", headers=headers
         )
         plains_coro = client.get(
-            f"{EXTERNAL_API_BASE_URL}/plains", headers=COMMON_HEADERS
+            f"{EXTERNAL_API_BASE_URL}/plains", headers=headers
         )
 
         res_activities, res_hotels, res_plains = await asyncio.gather(
@@ -237,14 +261,14 @@ async def fetch_all_external() -> Tuple[List[Dict[str, Any]], List[Dict[str, Any
     )
 
 
-async def fetch_cities() -> List[Dict[str, Any]]:
+async def fetch_cities(token: str) -> List[Dict[str, Any]]:
     """Fetch list of cities from /cities."""
-    return await fetch_list_from_external("cities")
+    return await fetch_list_from_external("cities", token)
 
 
-async def find_city_id_by_name(city_name: str) -> Optional[int]:
+async def find_city_id_by_name(city_name: str, token: str) -> Optional[int]:
     """Search for city ID by name."""
-    cities = await fetch_cities()
+    cities = await fetch_cities(token)
     city_name_lower = city_name.lower().strip()
     for city in cities:
         if city.get("name") and city.get("name").lower().strip() == city_name_lower:
@@ -258,11 +282,12 @@ async def send_budget_to_api(
     req: TripRequest,
     plan_response: TripPlanResponse,
     destination_city_id: Optional[int],
+    token: str,
 ) -> Dict[str, Any]:
     """Send budget data to /api/budgets."""
     to_city_id = req.to_city_id or destination_city_id
     if to_city_id is None:
-        to_city_id = await find_city_id_by_name(req.destination)
+        to_city_id = await find_city_id_by_name(req.destination, token)
     
     if to_city_id is None:
         raise HTTPException(
@@ -375,9 +400,10 @@ async def send_budget_to_api(
     }
     
     url = f"{EXTERNAL_API_BASE_URL}/budgets"
+    headers = get_headers(token)
     
     async with httpx.AsyncClient(timeout=15.0) as client:
-        resp = await client.post(url, headers=COMMON_HEADERS, json=budget_data)
+        resp = await client.post(url, headers=headers, json=budget_data)
     
     if resp.status_code not in (200, 201):
         raise HTTPException(
@@ -568,7 +594,10 @@ def filter_and_map_items(
     summary="Suggest complete travel plan",
     tags=["trip-planner"],
 )
-async def plan_trip(req: TripRequest) -> TripPlanResponse:
+async def plan_trip(
+    req: TripRequest,
+    token: str = Depends(get_token)
+) -> TripPlanResponse:
     """Receives trip data and suggests a complete plan.
 
     - Input:
@@ -577,6 +606,8 @@ async def plan_trip(req: TripRequest) -> TripPlanResponse:
         * Trip duration
         * Destination (city/region)
         * (Optional) Custom budget distribution percentages
+    - Header:
+        * Authorization: Bearer <token> (required)
     - Output:
         * Cost per person
         * Cost per person per day
@@ -587,7 +618,7 @@ async def plan_trip(req: TripRequest) -> TripPlanResponse:
 
     destination_name = req.destination
     if req.city_id is not None:
-        cities = await fetch_cities()
+        cities = await fetch_cities(token)
         city_match = next((c for c in cities if c.get("id") == req.city_id), None)
         if city_match is None:
             raise HTTPException(
@@ -598,8 +629,8 @@ async def plan_trip(req: TripRequest) -> TripPlanResponse:
         if isinstance(city_name, str) and city_name.strip():
             destination_name = city_name.strip()
 
-    activities_raw, hotels_raw, plains_raw = await fetch_all_external()
-    restaurants_raw = await fetch_list_from_external("restaurants")
+    activities_raw, hotels_raw, plains_raw = await fetch_all_external(token)
+    restaurants_raw = await fetch_list_from_external("restaurants", token)
 
     def build_category(
         raw: List[Dict[str, Any]],
@@ -658,12 +689,12 @@ async def plan_trip(req: TripRequest) -> TripPlanResponse:
     
     destination_city_id = req.city_id
     if destination_city_id is None:
-        destination_city_id = await find_city_id_by_name(destination_name)
+        destination_city_id = await find_city_id_by_name(destination_name, token)
     
     if req.from_city_id is not None and req.user_id is not None:
         try:
             budget_api_response = await send_budget_to_api(
-                req, plan_response, destination_city_id
+                req, plan_response, destination_city_id, token
             )
         except HTTPException:
             pass
@@ -676,12 +707,15 @@ async def plan_trip(req: TripRequest) -> TripPlanResponse:
     summary="Quick preview of raw responses from external APIs",
     tags=["external"],
 )
-async def external_preview(limit: int = 3) -> Dict[str, Any]:
+async def external_preview(
+    limit: int = 3,
+    token: str = Depends(get_token)
+) -> Dict[str, Any]:
     """For development use only:
     Returns first (limit) items from each external API
     so you can see the JSON format and modify fields in filter_and_map_items.
     """
-    activities_raw, hotels_raw, plains_raw = await fetch_all_external()
+    activities_raw, hotels_raw, plains_raw = await fetch_all_external(token)
     return {
         "activities_sample": activities_raw[:limit],
         "hotels_sample": hotels_raw[:limit],
@@ -694,12 +728,14 @@ async def external_preview(limit: int = 3) -> Dict[str, Any]:
     summary="Display raw activities data from external API",
     tags=["external"],
 )
-async def external_activities() -> List[Dict[str, Any]]:
+async def external_activities(
+    token: str = Depends(get_token)
+) -> List[Dict[str, Any]]:
     """Simple proxy that displays the same data returned by
     `https://insidethekingdom.online/api/activities`
     but through your service, with appearance in API Docs.
     """
-    return await fetch_list_from_external("activities")
+    return await fetch_list_from_external("activities", token)
 
 
 @app.get(
@@ -707,12 +743,14 @@ async def external_activities() -> List[Dict[str, Any]]:
     summary="Display raw hotels data from external API",
     tags=["external"],
 )
-async def external_hotels() -> List[Dict[str, Any]]:
+async def external_hotels(
+    token: str = Depends(get_token)
+) -> List[Dict[str, Any]]:
     """Simple proxy that displays the same data returned by
     `https://insidethekingdom.online/api/hotels`
     but through your service, with appearance in API Docs.
     """
-    return await fetch_list_from_external("hotels")
+    return await fetch_list_from_external("hotels", token)
 
 
 @app.get(
@@ -720,12 +758,14 @@ async def external_hotels() -> List[Dict[str, Any]]:
     summary="Display raw flights/transportation data from external API",
     tags=["external"],
 )
-async def external_plains() -> List[Dict[str, Any]]:
+async def external_plains(
+    token: str = Depends(get_token)
+) -> List[Dict[str, Any]]:
     """Simple proxy that displays the same data returned by
     `https://insidethekingdom.online/api/plains`
     but through your service, with appearance in API Docs.
     """
-    return await fetch_list_from_external("plains")
+    return await fetch_list_from_external("plains", token)
 
 
 @app.get(
@@ -733,9 +773,11 @@ async def external_plains() -> List[Dict[str, Any]]:
     summary="Display restaurants data from external API",
     tags=["external"],
 )
-async def external_restaurants() -> List[Dict[str, Any]]:
+async def external_restaurants(
+    token: str = Depends(get_token)
+) -> List[Dict[str, Any]]:
     """Proxy that displays content from https://insidethekingdom.online/api/restaurants"""
-    return await fetch_list_from_external("restaurants")
+    return await fetch_list_from_external("restaurants", token)
 
 
 @app.get(
@@ -743,9 +785,11 @@ async def external_restaurants() -> List[Dict[str, Any]]:
     summary="Display list of cities from external API",
     tags=["external"],
 )
-async def external_cities() -> List[Dict[str, Any]]:
+async def external_cities(
+    token: str = Depends(get_token)
+) -> List[Dict[str, Any]]:
     """Displays the same response as https://insidethekingdom.online/api/cities"""
-    return await fetch_cities()
+    return await fetch_cities(token)
 
 
 @app.get(
